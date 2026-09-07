@@ -1,0 +1,139 @@
+// Prisma schema for Mentoria — plataforma de gestão de planos
+// alimentares e de treino para alunos/pacientes.
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PROFESSIONAL
+  STUDENT
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Populated when role = PROFESSIONAL: the students this professional manages.
+  managedStudents Student[] @relation("ProfessionalStudents")
+
+  // Populated when role = STUDENT: this user's own student profile.
+  studentProfile Student? @relation("StudentUser")
+}
+
+model Student {
+  id             String    @id @default(cuid())
+  user           User      @relation("StudentUser", fields: [userId], references: [id], onDelete: Cascade)
+  userId         String    @unique
+  professional   User      @relation("ProfessionalStudents", fields: [professionalId], references: [id], onDelete: Cascade)
+  professionalId String
+  phone          String?
+  birthDate      DateTime?
+  goal           String?
+  notes          String?
+  active         Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  mealPlans    MealPlan[]
+  workoutPlans WorkoutPlan[]
+
+  @@index([professionalId])
+}
+
+model MealPlan {
+  id        String   @id @default(cuid())
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  studentId String
+  title     String
+  active    Boolean  @default(true)
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  meals Meal[]
+
+  @@index([studentId])
+}
+
+model Meal {
+  id         String   @id @default(cuid())
+  mealPlan   MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+  mealPlanId String
+  name       String
+  time       String?
+  order      Int      @default(0)
+
+  items MealItem[]
+
+  @@index([mealPlanId])
+}
+
+model MealItem {
+  id       String  @id @default(cuid())
+  meal     Meal    @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  mealId   String
+  foodName String
+  quantity Float?
+  unit     String?
+  calories Float?
+  protein  Float?
+  carbs    Float?
+  fat      Float?
+  order    Int     @default(0)
+
+  @@index([mealId])
+}
+
+model WorkoutPlan {
+  id        String   @id @default(cuid())
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  studentId String
+  title     String
+  active    Boolean  @default(true)
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  days WorkoutDay[]
+
+  @@index([studentId])
+}
+
+model WorkoutDay {
+  id            String      @id @default(cuid())
+  workoutPlan   WorkoutPlan @relation(fields: [workoutPlanId], references: [id], onDelete: Cascade)
+  workoutPlanId String
+  name          String
+  order         Int         @default(0)
+
+  exercises Exercise[]
+
+  @@index([workoutPlanId])
+}
+
+model Exercise {
+  id           String     @id @default(cuid())
+  workoutDay   WorkoutDay @relation(fields: [workoutDayId], references: [id], onDelete: Cascade)
+  workoutDayId String
+  name         String
+  sets         Int?
+  reps         String?
+  restSeconds  Int?
+  weight       String?
+  notes        String?
+  order        Int        @default(0)
+
+  @@index([workoutDayId])
+}
