@@ -1,0 +1,8 @@
+Story "Nutricionista é supérfluo?" (1 tela)
+Fonte: Morgan-Bathke et al., J Acad Nutr Diet 2023;123(11):1621-1661.e25, PMID 35788061, doi 10.1016/j.jand.2022.03.014. SÓ O RESUMO foi lido (PubMed).
+- 62 ECRs (2008-2021, em inglês), adultos com sobrepeso/obesidade; intervenção por nutricionista vs cuidado usual ou nenhuma intervenção.
+- % de perda de peso: DM -4,01 pontos percentuais (IC 95% -5,26 a -2,75), certeza ALTA. Cintura: -3,45 cm (-4,39 a -2,51), certeza ALTA. IMC: -1,5 (-1,74 a -1,26), certeza MODERADA.
+- PA sistólica -3,04 mmHg (certeza moderada); diastólica -1,99 mmHg (certeza baixa). Não destaquei a certeza da PA na tela.
+- ATENÇÃO: o post de referência diz "mais que o dobro da chance de perder peso e melhorar índices cardiometabólicos". Esse "dobro da chance" NÃO aparece no resumo (os resultados são diferenças médias, não razão de chances). Por isso NÃO usei. Se tiver o número no texto completo, me diga a página/tabela.
+- "-4% de peso a mais" = diferença média em pontos percentuais de perda de peso vs controle.
+- A frase final ("Acompanhamento não é luxo. É o que sustenta o resultado.") é editorial, não conclusão dos autores. O estudo não mediu manutenção a longo prazo no resumo.
