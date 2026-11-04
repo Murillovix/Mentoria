@@ -1,0 +1,9 @@
+Story "Quanta proteína o músculo precisa?" (1 tela)
+Fonte: Morton et al., Br J Sports Med 2018;52(6):376-384, PMID 28698222, doi 10.1136/bjsports-2017-097608. SÓ O RESUMO foi lido (via PubMed).
+- 49 estudos, 1.863 participantes; ECRs com treino de força >= 6 semanas e suplementação de proteína.
+- Acima de ~1,62 g/kg/dia de proteína total, sem ganho adicional de massa magra (FFM) com suplementação.
+- Suplementação: +0,30 kg FFM (IC 95% 0,09 a 0,52); mais eficaz em treinados (0,75 kg), menos com o avanço da idade.
+- O dado vale para quem usava suplemento de proteína; não é uma comparação whey x comida.
+- "Mais massa magra e força até ~1,6" = suplementação aumentou força (1RM +2,49 kg) e FFM; a curva de ponto de quebra foi só para FFM.
+- A frase "Primeiro bata a meta do dia. Depois a gente ajusta o resto." é recomendação editorial, não conclusão dos autores. Editar se preferir.
+- Fonte/estilo reconstruídos do histórico das sessões anteriores (sem acesso ao gerar.py nem às figuras): fundo creme de bolinhas, Anton itálico amarelo, verde Escala Fit #1F7A63, cartões com barra colorida, botão "Me chama no direct". Figura sua (c3-sorrindo.png) não incluída.
